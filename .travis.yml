@@ -7,3 +7,10 @@ before_script:
   - psql -c 'create database travis_ci_test;' -U postgres
 before_script:
   - cp config/database.yml.travis config/database.yml
+
+deploy:
+  provider: heroku
+  api_key:
+    secure: "YOUR ENCRYPTED API KEY"
+travis encrypt $(heroku auth:token) --add deploy.api_key
+travis encrypt $(heroku auth:token) --add deploy.api_key --pro

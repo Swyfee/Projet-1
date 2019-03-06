@@ -2,7 +2,6 @@ development:
   adapter: postgresql
   encoding: utf8
   database: postgres
-  pool: 5
   username: postgres
   password: '0506'
 
@@ -10,7 +9,6 @@ test:
   adapter: postgresql
   encoding: utf8
   database: postgres
-  pool: 5
   username: postgres
   password: '0506'
 
@@ -18,6 +16,5 @@ production:
   adapter: postgresql
   encoding: utf8
   database: postgres
-  pool: 5
   username: postgres
   password: '0506'

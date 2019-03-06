@@ -1,29 +1,16 @@
 language: ruby
 rvm:
  - 2.3.3
-services: 
-  - mongodb
-  - riak
-  - rabbitmq
-  - memcached
+services:
   - postgresql
-
 before_script:
   - psql -c 'create database travis_ci_test;' -U postgres
-  - cp config/database.yml.travis config/database.yml
-  
-addons:
-postgresql: "10"
-apt:
-  packages:
+  addons:
+  postgresql: "10"
+  apt:
+    packages:
     - postgresql-10
     - postgresql-client-10
 env:
   global:
   - PGPORT=5433
-
-before_install:
-  - sudo apt-get update
-  - sudo apt-get install language-pack-es
-  - sudo /etc/init.d/postgresql stop
-  - sudo /etc/init.d/postgresql start 9.3

@@ -6,10 +6,10 @@ development:
   username: postgres
   password: '0506'
 
-test: &TEST
+test:
   adapter: postgresql
   encoding: utf8
-  database: postgres
+  database: travis_ci_test
   pool: 5
   username: postgres
   password: '0506'

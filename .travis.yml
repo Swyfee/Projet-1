@@ -1,16 +1,17 @@
 language: ruby
 rvm:
  - 2.3.3
+env:
+  - DB=pgsql
+
 services:
   - postgresql
-before_script:
-  - psql -c 'create database travis_ci_test;' -U postgres
+
+script:
+  - RAILS_ENV=test bundle exec rake db:migrate --trace
+  - bundle exec rake db:test:prepare
+  - bundle exec rake
+
 before_script:
   - cp config/database.yml.travis config/database.yml
-
-deploy:
-  provider: heroku
-  api_key:
-    secure: "YOUR ENCRYPTED API KEY"
-travis encrypt $(heroku auth:token) --add deploy.api_key
-travis encrypt $(heroku auth:token) --add deploy.api_key --pro
+  - psql -c 'create database travis_ci_test;' -U postgres

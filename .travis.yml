@@ -1,21 +1,21 @@
 language: ruby
 rvm:
  - 2.3.3
- services: 
+services: 
   - mongodb
   - riak
   - rabbitmq
   - memcached
   - postgresql
 
-  before_script:
+before_script:
   - psql -c 'create database travis_ci_test;' -U postgres
   - cp config/database.yml.travis config/database.yml
   
-  addons:
-  postgresql: "10"
-  apt:
-    packages:
+addons:
+postgresql: "10"
+apt:
+  packages:
     - postgresql-10
     - postgresql-client-10
 env:

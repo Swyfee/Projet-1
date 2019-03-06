@@ -17,5 +17,3 @@ production:
   pool: 5
   username: postgres
   password: '0506'
-  addons:
-  postgresql: "1.1.4"

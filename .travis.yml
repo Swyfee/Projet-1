@@ -1,6 +1,6 @@
 language: ruby
 rvm:
-- 2.5.1
+- 2.6.1
 env:
 - DB=pgsql
 services:
@@ -19,3 +19,4 @@ deploy:
   app: utbmprojet1
   on:
     repo: Swyfee/Projet-1
+run: "rails db:migrate"

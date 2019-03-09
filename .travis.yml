@@ -1,6 +1,6 @@
 language: ruby
 rvm:
-- 2.6.1
+- 2.5.3
 env:
 - DB=pgsql
 services:
@@ -13,10 +13,10 @@ before_script:
 - cp config/database.yml.travis config/database.yml
 - psql -c 'create database travis_ci_test;' -U postgres
 deploy:
+  run: "rails db:migrate" #met à jour la db pour afficher les pages ((ici student par ex))
   provider: heroku
   api_key:
     secure: 4f737394-5a0d-47d4-9c29-9957eed05f32
   app: utbmprojet1
   on:
     repo: Swyfee/Projet-1
-run: "rails db:migrate"

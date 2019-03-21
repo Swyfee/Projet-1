@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :products
 root 'welcome#index'
 resources :students
 get "/students/:id", to: "students#show"
